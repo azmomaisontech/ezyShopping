@@ -1,0 +1,12 @@
+nav {
+  background: var(--primary-color);
+}
+
+nav .container {
+  padding-top: 1rem;
+  padding-bottom: 1rem;
+}
+
+nav .logo {
+  color: var(--white);
+}

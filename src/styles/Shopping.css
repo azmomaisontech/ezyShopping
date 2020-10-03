@@ -1,0 +1,6 @@
+#shopping {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 4rem 0;
+}
