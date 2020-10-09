@@ -1,22 +1,22 @@
 import React from "react";
 import { connect } from "react-redux";
 import CartList from "./CartList";
-import { addToCart, removeFromCart } from "../redux/action/cartAction";
-import { CartItems, Product } from "../redux/action/type";
+import { removeFromCart } from "../redux/action/cartAction";
+import { CartItems, Product, State } from "../redux/action/type";
 import formatMoney from "../util/formatMoney";
 import overAllTotal from "../util/overAllTotal";
 import "../styles/Cart.css";
 
 interface Props {
   cartItems: CartItems;
-  removeFromCart: (product: Product) => void;
+  removeFromCart: (product: Product, cartItems: CartItems) => void;
 }
 
 const Cart: React.FC<Props> = (props) => {
   const { cartItems, removeFromCart } = props;
 
   const handleRemoveItem = (product: Product) => {
-    removeFromCart(product);
+    removeFromCart(product, cartItems);
   };
 
   return (
@@ -39,8 +39,12 @@ const Cart: React.FC<Props> = (props) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapDispatchToProps = {
+  removeFromCart,
+};
+
+const mapStateToProps = (state: State) => ({
   cartItems: state.cart.items,
 });
 
-export default connect(mapStateToProps, { addToCart, removeFromCart })(Cart);
+export default connect(mapStateToProps, mapDispatchToProps)(Cart);

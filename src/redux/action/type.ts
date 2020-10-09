@@ -4,9 +4,20 @@ export enum shoppingEnum {
   fetchProducts = "FETCH_PRODUCTS",
 }
 
-export type CartItems = { id: number; name: string; price: number; count: number }[];
+export type CartItems = {
+  id: number;
+  name: string;
+  price: number;
+  count: number;
+}[];
+
 export interface Product {
   id: number;
   name: string;
   price: number;
+}
+
+export interface State {
+  products: { items: Product[] };
+  cart: { items: CartItems };
 }

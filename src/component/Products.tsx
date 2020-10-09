@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { connect } from "react-redux";
 import { addToCart } from "../redux/action/cartAction";
 import { fetchProducts } from "../redux/action/productAction";
-import { CartItems, Product } from "../redux/action/type";
+import { CartItems, Product, State } from "../redux/action/type";
 import ProductItem from "./ProductItem";
 import "../styles/Products.css";
 
@@ -10,14 +10,14 @@ interface Props {
   products: { id: number; name: string; price: number }[];
   cartItems: CartItems;
   fetchProducts: () => void;
-  addToCart: (product: Product) => void;
+  addToCart: (product: Product, cartItem: CartItems) => void;
 }
 
 const Products: React.FC<Props> = (props) => {
   const { products, cartItems, fetchProducts, addToCart } = props;
 
   const handleAddToCart = (product: Product) => {
-    addToCart(product);
+    addToCart(product, cartItems);
   };
 
   useEffect(() => {
@@ -40,9 +40,14 @@ const Products: React.FC<Props> = (props) => {
   );
 };
 
-const mapStateToProps = (state: any) => ({
+const mapDispatchToProps = {
+  fetchProducts,
+  addToCart,
+};
+
+const mapStateToProps = (state: State) => ({
   products: state.products.items,
   cartItems: state.cart.items,
 });
 
-export default connect(mapStateToProps, { fetchProducts, addToCart })(Products);
+export default connect(mapStateToProps, mapDispatchToProps)(Products);

@@ -1,7 +1,6 @@
 import { shoppingEnum, CartItems, Product } from "./type";
 
-export const addToCart = (product: Product) => (dispatch: any, getState: any) => {
-  const cartItems: CartItems = getState().cart.items;
+export const addToCart = (product: Product, cartItems: CartItems) => {
   let AlreadyExistInCart = false;
 
   cartItems.forEach((item) => {
@@ -16,19 +15,18 @@ export const addToCart = (product: Product) => (dispatch: any, getState: any) =>
   }
   localStorage.setItem("cartItems", JSON.stringify(cartItems));
 
-  dispatch({
+  return {
     type: shoppingEnum.addToCart,
     payload: cartItems,
-  });
+  };
 };
 
-export const removeFromCart = (product: Product) => (dispatch: any, getState: any) => {
-  const cartItems: CartItems = getState().cart.items;
+export const removeFromCart = (product: Product, cartItems: CartItems) => {
   const updatedCartItems = cartItems.filter((item) => item.id !== product.id);
   localStorage.setItem("cartItems", JSON.stringify(updatedCartItems));
 
-  dispatch({
+  return {
     type: shoppingEnum.removeFromCart,
     payload: updatedCartItems,
-  });
+  };
 };
