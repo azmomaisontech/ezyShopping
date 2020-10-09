@@ -24,3 +24,9 @@
   justify-content: space-between;
   color: var(--white);
 }
+
+@media (max-width: 780px) {
+  #products {
+    flex: 100%;
+  }
+}
