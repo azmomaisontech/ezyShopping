@@ -5,6 +5,7 @@ import { addToCart, removeFromCart } from "../redux/action/cartAction";
 import { CartItems, Product } from "../redux/action/type";
 import formatMoney from "../util/formatMoney";
 import overAllTotal from "../util/overAllTotal";
+import "../styles/Cart.css";
 
 interface Props {
   cartItems: CartItems;

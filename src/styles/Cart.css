@@ -1,4 +1,14 @@
-.cart {
+#carts {
+  display: flex;
+  flex-direction: column;
+}
+
+#carts .cartItems {
+  display: flex;
+  flex-direction: column;
+}
+
+#carts .cart {
   margin-bottom: 2rem;
   width: 300px;
   padding: 1rem;
@@ -6,5 +16,4 @@
   display: flex;
   flex-direction: column;
   justify-content: space-between;
-  flex-wrap: wrap;
 }

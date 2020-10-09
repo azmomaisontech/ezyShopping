@@ -30,10 +30,12 @@ const Products: React.FC<Props> = (props) => {
 
   return (
     <section id="products">
-      {products &&
-        products.map((product) => (
-          <ProductItem key={product.id} product={product} handleAddToCart={handleAddToCart} cartItems={cartItems} />
-        ))}
+      <div className="flex-container">
+        {products &&
+          products.map((product) => (
+            <ProductItem key={product.id} product={product} handleAddToCart={handleAddToCart} cartItems={cartItems} />
+          ))}
+      </div>
     </section>
   );
 };

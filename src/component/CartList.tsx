@@ -1,7 +1,6 @@
 import React from "react";
 import formatMoney from "../util/formatMoney";
 import totalPrice from "../util/totalPrice";
-import "../styles/CartList.css";
 
 interface Props {
   cart: { id: number; name: string; price: number; count: number };
