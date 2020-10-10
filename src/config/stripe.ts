@@ -1,2 +1,0 @@
-export const API_KEY =
-  "pk_test_51Hadv9IwzWLh8x8qk7kyBaNK5P6N0D76qaTBYYWZ56ZTfXhOc0MpVkw0YROHyOwefUQXiSEaJJEqwIVED7KXTKJb00yD3oRfwa";
